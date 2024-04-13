@@ -10,7 +10,9 @@ exclude = ["assets/**", "tests/**"]
 edition = "2021"
 
 [dependencies]
-cpal = "0.15"
+# TODO(TicClick): The fork is a workaround for Windows not respecting default audio device change.
+# It can be removed once https://github.com/RustAudio/rodio/issues/463 is resolved.
+cpal = { git = "https://github.com/TicClick/cpal.git", branch = "master" } # v0.15.2
 claxon = { version = "0.4.2", optional = true }
 hound = { version = "3.3.1", optional = true }
 lewton = { version = "0.10", optional = true }
